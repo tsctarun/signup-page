@@ -61,29 +61,3 @@
 </div>
 </body>
 </html>
-<?php  
- require('db_connect.php');
-
-if (isset($_POST['username']) and isset($_POST['password'])){
-	
-// Assigning POST values to variables.
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-// CHECK FOR THE RECORD FROM TABLE
-$query = "insert into user_login (username,password) values('$username','$password')";
- 
-$result = mysqli_query($query) or die(mysqli_error($connection));
-$count = mysqli_num_rows($result);
-
-if (mysqli_query($query)){
-
-//echo "Login Credentials verified";
-echo "Login Credentials verified!";
-
-}else{
-echo "Invalid Login Credentials";
-//echo "Invalid Login Credentials";
-}
-}
-?>
